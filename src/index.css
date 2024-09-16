@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-text h-dvh text-base p-4 pt-5 bg-[#fff9e9];
+  }
+}
+@layer components {
+  .dots {
+    width: 4.8rem;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, #f59e0b 90%, #0000);
+    background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 50%;
+    animation: dote 1s infinite linear;
+  }
+  /* Remove arrows in Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Remove arrows in Chrome, Safari, Edge, and Opera */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @keyframes dote {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+  .navlink__hover {
+    @apply cursor-pointer hover:text-black transition-all duration-300 hover:bg-primary-hover-light hover:rounded-full;
+  }
+}
