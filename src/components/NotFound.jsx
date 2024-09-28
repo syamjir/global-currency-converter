@@ -11,6 +11,12 @@ function NotFound() {
         <p class="text-2xl md:text-3xl text-text-light">
           Sorry, we couldn't find this page.
         </p>
+        <Link
+          to="/"
+          class="px-8 py-4 text-xl font-semibold rounded bg-primary text-text hover:bg-primary-dark duration-300 transition-all-ease cursor-pointer"
+        >
+          Back to home
+        </Link>
       </div>
     </div>
   );
