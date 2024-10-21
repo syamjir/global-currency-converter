@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useCurrencyData } from "../contexts/CurrencyContext";
+import useGetWindowSize from "../hooks/useGetWindowSize";
 
-function CountrySelect({ onsetFrom, onSetTo, onFromCountry, onToCountry }) {
+function CountrySelect({ onSetFrom, onSetTo, onFromCountry, onToCountry }) {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isSearch, setIsSearch] = useState("");
@@ -40,7 +41,7 @@ function CountrySelect({ onsetFrom, onSetTo, onFromCountry, onToCountry }) {
     });
 
     setSearchedCountry(filteredCountries);
-  }, [isSearch]);
+  }, [isSearch, countryList]);
   const countries =
     searchedCountry.length === 0
       ? [{ name: "No results found !" }]
@@ -49,14 +50,25 @@ function CountrySelect({ onsetFrom, onSetTo, onFromCountry, onToCountry }) {
       : countryList;
   const handleSelectCountry = (country) => {
     // setSelectedCountry(country);
-    if (onsetFrom) {
+    if (onSetFrom) {
       setFromCountry(country);
     } else if (onSetTo) {
       setToCountry(country);
     }
 
-    onsetFrom ? onsetFrom(country.code) : onSetTo(country.code);
+    onSetFrom ? onSetFrom(country.code) : onSetTo(country.code);
     setIsOpen(false);
+  };
+  const windowSize = useGetWindowSize();
+  const trimCountryName = (name) => {
+    const countryName =
+      name?.length > 12 && windowSize < 400
+        ? `${name.slice(0, 8)}...`
+        : name?.length > 12 && windowSize < 850
+        ? `${name.slice(0, 13)}...`
+        : name;
+
+    return countryName;
   };
 
   return (
@@ -72,7 +84,7 @@ function CountrySelect({ onsetFrom, onSetTo, onFromCountry, onToCountry }) {
               <span className="font-extrabold text-red-500">
                 {selectedCountry.code}
               </span>
-              <span>{selectedCountry.name}</span>
+              <span>{trimCountryName(selectedCountry.name)}</span>
             </>
           ) : (
             "Select a country"
