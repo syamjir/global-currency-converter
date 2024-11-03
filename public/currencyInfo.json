@@ -1,0 +1,302 @@
+[
+  {
+    "currency": {
+      "name": "United States Dollar",
+      "code": "USD",
+      "symbol": "$",
+      "description": "The United States dollar (USD) is the official currency of the United States of America. It is the most widely used currency in the world for international transactions.",
+      "nicknames": "Buck",
+      "iso4217Code": "USD",
+      "centralBank": "Federal Reserve",
+      "subunits": {
+        "name": "Cent",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["$1", "$2", "$5", "$10", "$20", "$50", "$100"],
+        "coins": ["1¢", "5¢", "10¢", "25¢", "50¢", "$1"]
+      },
+      "countriesUsing": ["United States", "Ecuador", "El Salvador", "Panama"],
+      "currenciesPegged": [
+        "Bermudian dollar",
+        "Bahamian dollar",
+        "Barbadian dollar"
+      ],
+      "peggedTo": "None",
+      "flag": "🇺🇸",
+      "countryName": "United States"
+    }
+  },
+  {
+    "currency": {
+      "name": "Euro",
+      "code": "EUR",
+      "symbol": "€",
+      "description": "The Euro (EUR) is the official currency of the Eurozone, used by 19 of the 27 European Union countries.",
+      "nicknames": "None",
+      "iso4217Code": "EUR",
+      "centralBank": "European Central Bank",
+      "subunits": {
+        "name": "Cent",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["€5", "€10", "€20", "€50", "€100", "€200", "€500"],
+        "coins": ["1¢", "2¢", "5¢", "10¢", "20¢", "50¢", "€1", "€2"]
+      },
+      "countriesUsing": ["Germany", "France", "Italy", "Spain", "Netherlands"],
+      "currenciesPegged": [
+        "CFA franc",
+        "Cabo Verdean escudo",
+        "Comorian franc"
+      ],
+      "peggedTo": "None",
+      "flag": "🇪🇺",
+      "countryName": "Eurozone"
+    }
+  },
+  {
+    "currency": {
+      "name": "Chinese Yuan",
+      "code": "CNY",
+      "symbol": "¥",
+      "description": "The Chinese yuan (CNY) is the official currency of the People's Republic of China. It is also known as the Renminbi (RMB).",
+      "nicknames": "Renminbi",
+      "iso4217Code": "CNY",
+      "centralBank": "People's Bank of China",
+      "subunits": {
+        "name": "Fen",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["¥1", "¥5", "¥10", "¥20", "¥50", "¥100"],
+        "coins": ["1¥", "5¥", "10¥"]
+      },
+      "countriesUsing": ["China"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇨🇳",
+      "countryName": "China"
+    }
+  },
+  {
+    "currency": {
+      "name": "Japanese Yen",
+      "code": "JPY",
+      "symbol": "¥",
+      "description": "The Japanese yen (JPY) is the official currency of Japan. It is the third most traded currency in the foreign exchange market.",
+      "nicknames": "None",
+      "iso4217Code": "JPY",
+      "centralBank": "Bank of Japan",
+      "subunits": {
+        "name": "Sen",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["¥1,000", "¥2,000", "¥5,000", "¥10,000"],
+        "coins": ["¥1", "¥5", "¥10", "¥50", "¥100", "¥500"]
+      },
+      "countriesUsing": ["Japan"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇯🇵",
+      "countryName": "Japan"
+    }
+  },
+  {
+    "currency": {
+      "name": "British Pound Sterling",
+      "code": "GBP",
+      "symbol": "£",
+      "description": "The British pound sterling (GBP) is the official currency of the United Kingdom. It is the oldest currency still in use today.",
+      "nicknames": "Quid",
+      "iso4217Code": "GBP",
+      "centralBank": "Bank of England",
+      "subunits": {
+        "name": "Penny",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["£5", "£10", "£20", "£50"],
+        "coins": ["1p", "2p", "5p", "10p", "20p", "50p", "£1", "£2"]
+      },
+      "countriesUsing": ["United Kingdom", "Isle of Man", "Jersey", "Guernsey"],
+      "currenciesPegged": ["Falkland Islands pound", "Gibraltar pound"],
+      "peggedTo": "None",
+      "flag": "🇬🇧",
+      "countryName": "United Kingdom"
+    }
+  },
+  {
+    "currency": {
+      "name": "Indian Rupee",
+      "code": "INR",
+      "symbol": "₹",
+      "description": "The Indian rupee (INR) is the official currency of the Republic of India. It is issued by the Reserve Bank of India and subdivided into 100 paise.",
+      "nicknames": "Rupayya",
+      "iso4217Code": "INR",
+      "centralBank": "Reserve Bank of India",
+      "subunits": {
+        "name": "Paisa",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": [
+          "₹5",
+          "₹10",
+          "₹20",
+          "₹50",
+          "₹100",
+          "₹200",
+          "₹500",
+          "₹2,000"
+        ],
+        "coins": ["50 paise", "₹1", "₹2", "₹5", "₹10"]
+      },
+      "countriesUsing": ["India"],
+      "currenciesPegged": ["Bhutan ngultrum", "Nepalese rupee"],
+      "peggedTo": "None",
+      "flag": "🇮🇳",
+      "countryName": "India"
+    }
+  },
+  {
+    "currency": {
+      "name": "Canadian Dollar",
+      "code": "CAD",
+      "symbol": "$",
+      "description": "The Canadian dollar (CAD) is the official currency of Canada. It is commonly abbreviated with the dollar sign $, or sometimes CA$ to distinguish it from other dollar-denominated currencies.",
+      "nicknames": "Loonie",
+      "iso4217Code": "CAD",
+      "centralBank": "Bank of Canada",
+      "subunits": {
+        "name": "Cent",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["$5", "$10", "$20", "$50", "$100"],
+        "coins": ["1¢", "5¢", "10¢", "25¢", "$1", "$2"]
+      },
+      "countriesUsing": ["Canada"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇨🇦",
+      "countryName": "Canada"
+    }
+  },
+  {
+    "currency": {
+      "name": "Australian Dollar",
+      "code": "AUD",
+      "symbol": "$",
+      "description": "The Australian dollar (AUD) is the official currency of the Commonwealth of Australia, including its external territories.",
+      "nicknames": "Aussie",
+      "iso4217Code": "AUD",
+      "centralBank": "Reserve Bank of Australia",
+      "subunits": {
+        "name": "Cent",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["$5", "$10", "$20", "$50", "$100"],
+        "coins": ["5¢", "10¢", "20¢", "50¢", "$1", "$2"]
+      },
+      "countriesUsing": ["Australia"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇦🇺",
+      "countryName": "Australia"
+    }
+  },
+  {
+    "currency": {
+      "name": "Swiss Franc",
+      "code": "CHF",
+      "symbol": "₣",
+      "description": "The Swiss franc (CHF) is the official currency of Switzerland and Liechtenstein. It is known for its stability and used as a reserve currency.",
+      "nicknames": "None",
+      "iso4217Code": "CHF",
+      "centralBank": "Swiss National Bank",
+      "subunits": {
+        "name": "Rappen",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["₣10", "₣20", "₣50", "₣100", "₣200", "₣1,000"],
+        "coins": ["5 Rp", "10 Rp", "20 Rp", "50 Rp", "₣1", "₣2", "₣5"]
+      },
+      "countriesUsing": ["Switzerland", "Liechtenstein"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇨🇭",
+      "countryName": "Switzerland"
+    }
+  },
+  {
+    "currency": {
+      "name": "South Korean Won",
+      "code": "KRW",
+      "symbol": "₩",
+      "description": "The South Korean won (KRW) is the official currency of South Korea. It is issued by the Bank of Korea.",
+      "nicknames": "None",
+      "iso4217Code": "KRW",
+      "centralBank": "Bank of Korea",
+      "subunits": {
+        "name": "Jeon",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": ["₩1,000", "₩5,000", "₩10,000", "₩50,000"],
+        "coins": ["₩1", "₩5", "₩10", "₩50", "₩100", "₩500"]
+      },
+      "countriesUsing": ["South Korea"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇰🇷",
+      "countryName": "South Korea"
+    }
+  },
+  {
+    "currency": {
+      "name": "Russian Ruble",
+      "code": "RUB",
+      "symbol": "₽",
+      "description": "The Russian ruble (RUB) is the official currency of the Russian Federation. It is subdivided into 100 kopeks.",
+      "nicknames": "None",
+      "iso4217Code": "RUB",
+      "centralBank": "Central Bank of Russia",
+      "subunits": {
+        "name": "Kopek",
+        "value": 0.01
+      },
+      "denominations": {
+        "banknotes": [
+          "₽5",
+          "₽10",
+          "₽50",
+          "₽100",
+          "₽200",
+          "₽500",
+          "₽1,000",
+          "₽2,000",
+          "₽5,000"
+        ],
+        "coins": [
+          "1 kopek",
+          "5 kopeks",
+          "10 kopeks",
+          "50 kopeks",
+          "₽1",
+          "₽2",
+          "₽5",
+          "₽10"
+        ]
+      },
+      "countriesUsing": ["Russia"],
+      "currenciesPegged": ["None"],
+      "peggedTo": "None",
+      "flag": "🇷🇺",
+      "countryName": "Russia"
+    }
+  }
+]
