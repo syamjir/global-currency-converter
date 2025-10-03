@@ -1,5 +1,6 @@
 // Convert a 2-letter country code (e.g. "us") into a flag emoji (e.g. 🇺🇸)
 export function convertToFlag(countryCode) {
+  if (!countryCode) return "";
   const codePoints = countryCode
     .toUpperCase()
     .slice(0, 2)

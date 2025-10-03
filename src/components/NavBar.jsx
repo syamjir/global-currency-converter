@@ -26,7 +26,7 @@ function NavBar() {
       >
         {/* Brand button navigates home and closes menu */}
         <Button type="brand" onClick={handleCloseMenu} to="/">
-          {`ExchanGo`.toUpperCase()}
+          {`EXCHANGO`}
         </Button>
 
         {/* Navigation links */}

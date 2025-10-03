@@ -5,6 +5,7 @@ import { useCurrencyData } from "../contexts/CurrencyContext";
 import { convertToFlag } from "../utils/helper";
 import emailjs from "emailjs-com";
 import Loader from "../components/Loader";
+import { toast } from 'react-toastify';
 
 // EmailJS config (you should replace these with actual keys)
 const EMAIL_FROM = "";
@@ -103,12 +104,27 @@ function RateAlertPage() {
     );
 
     // Validation checks
+
     if (exchangeRateCheck && dailyMailCheck) {
-      return alert("Please select only one of the options");
+      toast.error("Please select only one option!");
+      return;
     }
+
     if (!dailyMailCheck && !exchangeRateCheck) {
-      return alert("Please check at least one of the boxes");
+      toast.error("Please select at least one option!");
+      return;
     }
+
+    if (dailyMailCheck) {
+      toast.error("premium users only!");
+      return;
+    }
+
+    if (!mailId) {
+      toast.error("Please enter a valid email address!");
+      return;
+    }
+
 
     if (intervalId) clearInterval(intervalId);
 

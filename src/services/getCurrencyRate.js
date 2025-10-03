@@ -1,5 +1,5 @@
 // API keys and base URL for currency data
-const API_KEY = 'cddc1ee63aa94701740a3310';
+const API_KEY = '72dcb31cb68715c4e21c3408';
 const API_KEY_FIXER = '675b69c963a65625a9a4b5913fbd8a5a';
 const BASE_URL = 'https://v6.exchangerate-api.com/v6';
 

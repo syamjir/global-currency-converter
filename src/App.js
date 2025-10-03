@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import FlashRatePage from "./pages/FlashRatePage";
 import RateAlertPage from "./pages/RateAlertPage";
@@ -58,6 +60,7 @@ function App() {
           </Suspense>
         </BrowserRouter>
       </CurrencyDataProvider>
+      <ToastContainer />
     </div>
   );
 }
