@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// 404 Not Found Page
 function NotFound() {
   return (
-    <div class="flex h-screen flex-col items-center justify-center p-0">
-      <div class="flex flex-col gap-6 max-w-md text-center">
-        <h2 class="font-extrabold text-9xl text-text ">
-          <span class="sr-only">Error</span>404
+    <div className="flex h-screen flex-col items-center justify-center p-0">
+      <div className="flex flex-col gap-6 max-w-md text-center">
+        <h2 className="font-extrabold text-9xl text-text">
+          <span className="sr-only">Error</span>404
         </h2>
-        <p class="text-2xl md:text-3xl text-text-light">
+        <p className="text-2xl md:text-3xl text-text-light">
           Sorry, we couldn't find this page.
         </p>
         <Link
           to="/"
-          class="px-8 py-4 text-xl font-semibold rounded bg-primary text-text hover:bg-primary-dark duration-300 transition-all-ease cursor-pointer"
+          className="px-8 py-4 text-xl font-semibold rounded bg-primary text-dark hover:bg-brand transition-all duration-300 ease-in-out cursor-pointer"
         >
           Back to home
         </Link>

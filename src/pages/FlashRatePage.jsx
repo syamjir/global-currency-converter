@@ -1,10 +1,13 @@
 import React from "react";
 import { FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
-function FlashRatePage() {
-  const linkStyle =
-    "flex items-center sm:gap-16 gap-0 border rounded border-primary-dark justify-around text-text py-2 hover:text-primary-dark transition-all-ease duration-500 cursor-pointer";
 
+function FlashRatePage() {
+  // Common styles for each link item
+  const linkStyle =
+    "flex items-center sm:gap-16 gap-0 border rounded border-border justify-around text-text py-2 hover:text-brand transition-all duration-500 cursor-pointer";
+
+  // Currency pairs to display in two columns
   const flashRateCountryListOne = [
     { from: "USD", to: "CHF", key: 1 },
     { from: "USD", to: "AUD", key: 2 },
@@ -19,29 +22,32 @@ function FlashRatePage() {
     { from: "USD", to: "EUR", key: 9 },
     { from: "USD", to: "SGD", key: 10 },
   ];
+
   return (
     <div className="w-full lg:w-2/3 grid grid-cols-2 mt-12 gap-6 md:gap-12">
+      {/* First column of currency pairs */}
       <ul className="flex flex-col gap-7">
-        {flashRateCountryListOne.map((country) => (
+        {flashRateCountryListOne.map(({ from, to, key }) => (
           <Link
-            key={country.key}
+            key={key}
             className={linkStyle}
-            to={`/conversion?from=${country.from}&to=${country.to}`}
+            to={`/conversion?from=${from}&to=${to}`}
           >
-            <span>{`1 ${country.from} to ${country.to}`}</span>
+            <span>{`1 ${from} to ${to}`}</span>
             <FiChevronRight />
           </Link>
         ))}
       </ul>
 
+      {/* Second column of currency pairs */}
       <ul className="flex flex-col gap-7">
-        {flashRateCountryListTwo.map((country) => (
+        {flashRateCountryListTwo.map(({ from, to, key }) => (
           <Link
-            key={country.key}
+            key={key}
             className={linkStyle}
-            to={`/conversion?from=${country.from}&to=${country.to}`}
+            to={`/conversion?from=${from}&to=${to}`}
           >
-            <span>{`1 ${country.from} to ${country.to}`}</span>
+            <span>{`1 ${from} to ${to}`}</span>
             <FiChevronRight />
           </Link>
         ))}

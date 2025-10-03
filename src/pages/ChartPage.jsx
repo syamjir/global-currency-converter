@@ -10,14 +10,31 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const ChartPage = () => {
   const [activeChartStyle, setActiveChartStyle] = useState("smooth");
   const [page, setPage] = useState({ from: 0, to: 11 });
+  const [chartYear, setChartYear] = useState("")
 
   const { setChartDate, chartDate, currencyData, isLoading } =
     useCurrencyData();
 
+  // When chartDate changes, update chartYear
+  useEffect(() => {
+    setChartYear(chartDate.split('-')[0]);
+  }, [chartDate]);
+
+  console.log(chartYear)
+
+  // When chartYear changes, update the chart title in options
+  useEffect(() => {
+    setOptions((prevOptions) => {
+      const updatedOptions = deepClone(prevOptions);
+      updatedOptions.title.text = `${chartYear} USD Based Currency Rate `;
+      return updatedOptions;
+    });
+  }, [chartYear]);
+
   // Handle the chart data loading state
   const [options, setOptions] = useState({
     title: {
-      text: `${new Date().getFullYear()} USD Based Currency Rate `,
+      text: 'USD Based Currency Rate',
       color: "#333",
       fontWeight: 600,
     },
@@ -39,13 +56,18 @@ const ChartPage = () => {
     ],
   });
 
-  // Update options when currencyData.chartData, page, or chartDate changes
+
+
+  // When pagination, data, or loading changes, update data in options
   useEffect(() => {
-    const updatedOptions = deepClone(options);
-    if (isLoading) updatedOptions.data = [];
-    updatedOptions.data = currencyData.chartData.slice(page.from, page.to);
-    setOptions(updatedOptions);
-  }, [page, currencyData.chartData, chartDate, options, isLoading]);
+    setOptions((prevOptions) => {
+      const updatedOptions = deepClone(prevOptions);
+      updatedOptions.data = isLoading
+        ? []
+        : currencyData.chartData.slice(page.from, page.to);
+      return updatedOptions;
+    });
+  }, [page, currencyData.chartData, chartDate, isLoading]);
 
   const lineStyleLinear = () => {
     const clone = deepClone(options);
@@ -96,22 +118,22 @@ const ChartPage = () => {
     <div className="w-full md:w-3/4 flex flex-col gap-4">
       <HeaderTitle
         header={"ExchanGo Currency Converter"}
-        title={"GBP to INR conversion chart"}
+        title={"USD Based Currency Rate"}
       />
 
-      <div className="flex flex-col bg-primary-hover-dark p-6 rounded-lg border border-primary ">
+      <div className="flex flex-col bg-primary-hover-dark p-6 rounded-lg border border-border ">
         <div className="md:flex items-center gap-6 justify-around p-2 ">
           <div className="flex gap-3 mb-4 justify-center items-center md:mb-0">
             <input
               type="date"
-              className="bg-primary p-1 md:p-2 rounded-full text-text font-semibold border border-blue-400 hover:bg-primary-dark cursor-pointer"
+              className="bg-light p-1 md:p-2 rounded-full text-text font-semibold border border-border hover:bg-brand hover:text-dark cursor-pointer"
               value={chartDate}
               onChange={(e) => {
                 setChartDate(e.target.value);
               }}
             />
             <button
-              className="bg-primary cursor-pointer hover:bg-primary-dark p-1 px-2 border border-blue-500 rounded-lg"
+              className="bg-light cursor-pointer hover:bg-brand hover:text-dark p-1 px-2 border border-border rounded-lg"
               onClick={() =>
                 setPage((page) => ({
                   from: page.from + 10,
@@ -123,7 +145,7 @@ const ChartPage = () => {
             </button>
             {page.to > 11 && (
               <button
-                className="bg-primary cursor-pointer hover:bg-primary-dark p-1 px-2 border border-blue-500 rounded-lg"
+                className="bg-light cursor-pointer hover:bg-brand hover:text-dark p-1 px-2  rounded-lg"
                 onClick={() =>
                   setPage((page) => ({
                     from: page.from - 10,
@@ -138,40 +160,40 @@ const ChartPage = () => {
           <div className="toolbar flex gap-2 sm:gap-4 justify-center text-text flex-wrap">
             <Button
               onClick={lineStyleLinear}
-              type="small"
-              color="bg-primary-dark"
+              type="chart"
+              color="bg-brand"
               onActiveChartStyle={activeChartStyle === "linear" ? true : false}
             >
               Linear
             </Button>
             <Button
               onClick={lineStyleSmooth}
-              type="small"
-              color="bg-primary-dark"
+              type="chart"
+              color="bg-brand"
               onActiveChartStyle={activeChartStyle === "smooth" ? true : false}
             >
               Smooth
             </Button>
             <Button
               onClick={lineStyleStepStart}
-              type="small"
-              color="bg-primary-dark"
+              type="chart"
+              color="bg-brand"
               onActiveChartStyle={activeChartStyle === "start" ? true : false}
             >
               Start
             </Button>
             <Button
               onClick={lineStyleStepMiddle}
-              type="small"
-              color="bg-primary-dark"
+              type="chart"
+              color="bg-brand"
               onActiveChartStyle={activeChartStyle === "middle" ? true : false}
             >
               Middle
             </Button>
             <Button
               onClick={lineStyleStepEnd}
-              type="small"
-              color="bg-primary-dark"
+              type="chart"
+              color="bg-brand"
               onActiveChartStyle={activeChartStyle === "end" ? true : false}
             >
               End

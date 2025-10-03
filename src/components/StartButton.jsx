@@ -3,10 +3,11 @@ import Button from "./Button";
 import { FaArrowRight } from "react-icons/fa";
 
 function StartButton() {
+  // Button that navigates to the conversion page to start currency conversion
   return (
     <div className="flex-wrap">
-      <Button type="primary" color="bg-primary-dark" to={"conversion"}>
-        Press <span className="bg-primary p-1 rounded">Enter</span> anytime to
+      <Button type="primary" to={"conversion"}>
+        Click <span className="bg-secondary px-3 py-0.5 rounded text-dark hover:bg-primary">me</span> anytime to
         start
         <FaArrowRight />
       </Button>

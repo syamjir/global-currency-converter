@@ -8,6 +8,7 @@ function CurrencyCardPage() {
   const [currencyInfoData, setCurrencyInfoData] = useState([]);
   const { currencyData, isLoading, setIsLoading } = useCurrencyData();
 
+  // Fetch currency info data on mount or when currencyData changes
   useEffect(() => {
     async function getData() {
       setIsLoading(true);
@@ -18,7 +19,7 @@ function CurrencyCardPage() {
     getData();
   }, [currencyData, setIsLoading]);
 
-  // Use useMemo to memoize the sliced data
+  // Memoize first two items to optimize rendering
   const slicedCurrencyData = useMemo(
     () => currencyInfoData.slice(0, 2),
     [currencyInfoData]
@@ -30,6 +31,7 @@ function CurrencyCardPage() {
         <Loader />
       ) : (
         <>
+          {/* Display top 2 currency info cards */}
           <div className="md:grid md:grid-cols-2 md:gap-6 mt-1">
             {slicedCurrencyData.map((currency) => (
               <CurrencyInfoCard
@@ -41,6 +43,8 @@ function CurrencyCardPage() {
               />
             ))}
           </div>
+
+          {/* Display full currency list */}
           <div>
             <CurrencyList onCurrencyInfoData={currencyInfoData} />
           </div>

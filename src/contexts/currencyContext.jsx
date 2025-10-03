@@ -12,6 +12,7 @@ import { getDate } from "../utils/getDate";
 const CurrencyContext = createContext();
 
 function CurrencyDataProvider({ children }) {
+  // State to manage loading, amount, rate, selected currencies, etc.
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState(1);
   const [rate, setRate] = useState(null);
@@ -22,12 +23,13 @@ function CurrencyDataProvider({ children }) {
   const [toCountry, setToCountry] = useState(null);
   const [chartDate, setChartDate] = useState(() => getDate());
 
-  // Memoize currencyData creation
+  // Memoize currency data instance to avoid unnecessary recreations
   const currencyData = useMemo(
     () => new Currency(from, to, amount, chartDate),
     [from, to, amount, chartDate]
   );
-  // For chart data
+
+  // Fetch historical rate data when chartDate changes
   useEffect(() => {
     async function getData() {
       setIsLoading(true);
@@ -37,7 +39,7 @@ function CurrencyDataProvider({ children }) {
     getData();
   }, [chartDate]);
 
-  // Set country code list
+  // Fetch list of country codes once on currencyData change
   useEffect(() => {
     let isMounted = true;
     async function getData() {
@@ -61,13 +63,16 @@ function CurrencyDataProvider({ children }) {
     };
   }, [currencyData]);
 
-  // Generate country list with flags
-  const countryList = countryCodeList.map((country) => ({
-    code: country[0],
-    name: country[1],
-    flag: convertToFlag(country[0]),
-  }));
+  // Format country list with code, name, and flag emoji
+  const countryList = Array.isArray(countryCodeList)
+    ? countryCodeList.map((country) => ({
+        code: country[0],
+        name: country[1],
+        flag: convertToFlag(country[0]),
+      }))
+    : [];
 
+  // Calculate exchange rate for selected currencies and amount
   const calculateRate = async () => {
     try {
       setIsLoading(true);
@@ -113,7 +118,7 @@ function useCurrencyData() {
   const context = useContext(CurrencyContext);
   if (context === undefined) {
     throw new Error(
-      "CurrencyContext is used outside the CurrencyContext provider "
+      "CurrencyContext is used outside the CurrencyContext provider"
     );
   }
   return context;

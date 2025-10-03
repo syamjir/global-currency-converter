@@ -2,8 +2,8 @@ import React from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 
+// Home page combining header and hero sections
 function HomePage() {
-  console.log(process.env.REACT_APP_API_KEY);
   return (
     <div>
       <Header />
