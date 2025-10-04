@@ -37,7 +37,7 @@ function CurrencyDataProvider({ children }) {
       setIsLoading(false);
     }
     getData();
-  }, [chartDate]);
+  }, [chartDate, currencyData]);
 
   // Fetch list of country codes once on currencyData change
   useEffect(() => {
@@ -66,10 +66,10 @@ function CurrencyDataProvider({ children }) {
   // Format country list with code, name, and flag emoji
   const countryList = Array.isArray(countryCodeList)
     ? countryCodeList.map((country) => ({
-        code: country[0],
-        name: country[1],
-        flag: convertToFlag(country[0]),
-      }))
+      code: country[0],
+      name: country[1],
+      flag: convertToFlag(country[0]),
+    }))
     : [];
 
   // Calculate exchange rate for selected currencies and amount
