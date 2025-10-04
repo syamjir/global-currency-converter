@@ -1,0 +1,31 @@
+# Stage 1: Build the frontend
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy only package.json and lock file first for better layer caching
+COPY ../package.json ../package-lock.json ./
+
+RUN npm install
+
+# Now copy the rest of the app
+COPY ../ ./
+
+# Run build (assumes create-react-app or Vite uses `build` script)
+RUN npm run build
+
+# ------------------------------------------------------------
+
+# Stage 2: Serve using a lightweight web server    
+FROM nginx:stable-alpine
+
+# Remove default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built app from previous stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

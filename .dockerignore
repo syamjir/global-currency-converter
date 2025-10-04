@@ -1,6 +1,25 @@
-.git
+# Dependency directories - rebuild them inside the container
 node_modules
-.husky
+
+# Build artifacts - generated during Docker build
+build
+dist
+
+# Docker-related config files
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# Environment variable files - do not copy secrets into image
 .env*
+ 
+# Git-related files and folders
+.git
+.gitignore
+
+# Editor & IDE settings
 .vscode
-.commitlintrc.json
+.idea
+
+# Log files
+*.log
